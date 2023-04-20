@@ -3,19 +3,14 @@
         <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">รายการไซต์งาน</h3>
+                <h3 class="card-title">รายการวัสดุอุปกรณ์</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 400px;">
                       <input type="text" class="form-control float-right" placeholder="Search" wire:model="searchTerm"/>&nbsp;
                       <div class="input-group-append">
-                        @livewire('job-site.job-site-form-page')
-                        <button type="button" 
-                        class="btn btn-primary" 
-                        data-toggle="modal" 
-                        data-target="#modal" 
-                        wire:click="$emit('btnCreateJobSite')">
+                        <a href="{{route('equipment.create')}}"class="btn btn-primary">
                         <i class="fas fa-plus"></i>&nbsp;เพิ่มข้อมูล
-                        </button>
+                        </a>
                       </div>
                     </div>
                 </div>
@@ -26,29 +21,38 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
+                      <th>รูป</th>
                       <th style="text-align: center">สถานะ</th>
-                      <th>รหัสไซต์งาน</th>
-                      <th>ชื่อไซต์งาน</th>
+                      <th>รหัสวัสดุอุปกรณ์</th>
+                      <th>ชื่อวัสดุอุปกรณ์</th>
+                      <th>ไชต์ที่จัดเก็บ</th>
                       <th style="width: 40px">แก้ไข</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($job as $item)
+                    @foreach ($equ as $item)
                     <tr>
                         <td>{{$item->id}}</td>
                         <td class="text-center">
-                            @if ($item->job_status)
+                          @if($item->equ_picture)
+                          <img src="{{asset('/images/equipments/'.$item->equ_picture)}}" class="profile-user-img img-fluid img-circle">
+                          @endif
+                        </td>
+                        <td class="text-center">
+                            @if ($item->equ_status)
                                 <span class="badge badge-success">ใช้งาน</span>
                             @else  
                                 <span class="badge badge-danger">ยกเลิก</span>
                             @endif
                         </td>
-                        <td>{{$item->job_code}}</td>
+                        <td>{{$item->equ_code}}</td>
+                        <td>{{$item->equ_name}} ({{$item->EquipmentGroup->grou_name}})</td>
                         <td>{{$item->job_name}}</td>
                         <td>
-                          <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal" wire:click="$emit('editJobSite',{{$item->id}})">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                            <a href="{{route('equipment.update',$item->id)}}" 
+                              class="btn btn-sm btn-warning" >
+                              <i class="fas fa-edit"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach                  
@@ -57,7 +61,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-               {{$job->links()}}
+               {{$equ->links()}}
               </div>
             </div>
         </div>

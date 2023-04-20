@@ -17,7 +17,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด</b></a>
   </div>
 
   <div class="card">

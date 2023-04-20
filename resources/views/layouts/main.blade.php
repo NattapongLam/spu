@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title','Pos')</title>
+  <title>@yield('title','บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -53,6 +53,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>

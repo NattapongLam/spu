@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Borrow\BorrowFormPage;
+use App\Http\Livewire\Borrow\BorrowListPage;
 use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\JobSite\JobSiteListPage;
+use App\Http\Livewire\Borrow\BorrowApprovalPage;
 use App\Http\Livewire\Employee\EmployeeListPage;
 use App\Http\Livewire\Employee\EmployeeRolePage;
+use App\Http\Livewire\Equipment\EquipmentFormPage;
+use App\Http\Livewire\Equipment\EquipmentListPage;
 use App\Http\Livewire\EquipmentGroup\EquipmentGroupListPage;
 
 /*
@@ -49,4 +54,25 @@ Route::group([
     'middleware' =>  ['auth','role:admin']
 ],function(){
     Route::get('/', JobSiteListPage::class)->name('list');
+});
+
+Route::group([
+    'prefix' => 'equipments',
+    'as' => 'equipment.',
+    'middleware' =>  ['auth','role:admin']
+],function(){
+    Route::get('/', EquipmentListPage::class)->name('list');
+    Route::get('/create', EquipmentFormPage::class)->name('create');
+    Route::get('/update/{id}', EquipmentFormPage::class)->name('update');
+});
+
+Route::group([
+    'prefix' => 'borrows',
+    'as' => 'borrow.',
+    'middleware' =>  ['auth','role:admin|employee|repairman']
+],function(){
+    Route::get('/', BorrowListPage::class)->name('list');
+    Route::get('/create', BorrowFormPage::class)->name('create');
+    Route::get('/update/{id}', BorrowFormPage::class)->name('update');
+    Route::get('/approval/{id}', BorrowApprovalPage::class)->name('approval');
 });
