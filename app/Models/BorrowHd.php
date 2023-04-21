@@ -19,7 +19,9 @@ class BorrowHd extends Model
         'emp_name',
         'app_name',
         'sta_id',
-        'app_reamrk'
+        'app_reamrk',
+        'return_name',
+        'return_remark'
     ];
     public function equs()
     {

@@ -37,15 +37,15 @@
             </a>           
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('repatriate.list')}}" class="nav-link {{\Request::routeIs('repatriate.list') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-pen-alt"></i>
-                <p>บันทึกคืนวัสดุอุปกรณ์</p>
+                <p>บันทึกส่งคืนวัสดุอุปกรณ์</p>
             </a>           
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('approval.list')}}" class="nav-link {{\Request::routeIs('approval.list') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-calendar-check"></i>
-                <p>อนุมัติยืม-คืน</p>
+                <p>บันทึกรับคืนวัสดุอุปกรณ์</p>
             </a>           
         </li>
         <li class="nav-item">
@@ -55,30 +55,30 @@
             </a>           
         </li>
         <li class="nav-header">รายงาน</li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>แจ้งซ่อมประจำวัน</p>
             </a>           
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-line"></i>
-                <p>แจ้งซ่อมประจำเดือน</p>
+                <p>รายงานแจ้งซ่อม</p>
             </a>           
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('borrowreport.borday.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-chart-bar"></i>
-                <p>ยืม-คืนประจำวัน</p>
+                <p>รายงานยืม-คืน</p>
             </a>           
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-area"></i>
                 <p>ยืม-คืนประจำเดือน</p>
             </a>           
-        </li>
+        </li> --}}
         <li class="nav-header">ตั้งค่า</li>
         <li class="nav-item">
             <a href="{{route('employee.list')}}" class="nav-link {{\Request::routeIs('employee.list') ? 'active' : ''}}">
@@ -95,7 +95,7 @@
         <li class="nav-item">
             <a href="{{route('equipment.list')}}" class="nav-link {{\Request::routeIs('equipment.list') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-cog"></i>
-                <p>วัสดุอุปกรณ์</p>
+                <p>ทะเบียนวัสดุอุปกรณ์</p>
             </a>           
         </li>
         <li class="nav-item">

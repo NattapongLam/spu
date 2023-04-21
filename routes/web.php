@@ -4,12 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Borrow\BorrowFormPage;
 use App\Http\Livewire\Borrow\BorrowListPage;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BorrowController;
 use App\Http\Livewire\JobSite\JobSiteListPage;
 use App\Http\Livewire\Borrow\BorrowApprovalPage;
 use App\Http\Livewire\Employee\EmployeeListPage;
 use App\Http\Livewire\Employee\EmployeeRolePage;
 use App\Http\Livewire\Equipment\EquipmentFormPage;
 use App\Http\Livewire\Equipment\EquipmentListPage;
+use App\Http\Livewire\Repatriate\RepatriateListPage;
+use App\Http\Livewire\Repatriate\RepatriateApproFormPage;
+use App\Http\Livewire\Repatriate\RepatriateApproListPage;
 use App\Http\Livewire\EquipmentGroup\EquipmentGroupListPage;
 
 /*
@@ -75,4 +79,29 @@ Route::group([
     Route::get('/create', BorrowFormPage::class)->name('create');
     Route::get('/update/{id}', BorrowFormPage::class)->name('update');
     Route::get('/approval/{id}', BorrowApprovalPage::class)->name('approval');
+});
+
+Route::group([
+    'prefix' => 'repatriates',
+    'as' => 'repatriate.',
+    'middleware' =>  ['auth','role:admin|employee|repairman']
+],function(){
+    Route::get('/', RepatriateListPage::class)->name('list');
+});
+
+Route::group([
+    'prefix' => 'approvals',
+    'as' => 'approval.',
+    'middleware' =>  ['auth','role:admin']
+],function(){
+    Route::get('/', RepatriateApproListPage::class)->name('list');
+    Route::get('/update/{id}', RepatriateApproFormPage::class)->name('update');
+});
+
+Route::group([
+    'prefix' => 'borrowreports',
+    'as' => 'borrowreport.',
+    'middleware' =>  ['auth','role:admin|employee|repairman']
+],function(){
+    Route::get('/borday', [BorrowController::class,'borday'])->name('borday.index');  
 });

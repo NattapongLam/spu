@@ -4,22 +4,18 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                  <div class="col-5">
-                    <h3 class="card-title">รายการยืมวัสดุอุปกรณ์</h3>
+                  <div class="col-6">
+                    <h3 class="card-title">รายการยืมวัสดุอุปกรณ์รอส่งคืน</h3>
                   </div>
-                  <div class="col-7">
+                  <div class="col-6">
                     <div class="card-tools">
                       <div class="input-group input-group-sm">
                         <input type="text" class="form-control float-right" placeholder="Search" wire:model="searchTerm"/>&nbsp;
-                        <div class="input-group-append">
-                          <a href="{{route('borrow.create')}}"class="btn btn-primary">
-                          <i class="fas fa-plus"></i>&nbsp;เพิ่มข้อมูล
-                          </a>
-                        </div>
                       </div>
+                      @livewire('repatriate.repatriate-form-page')
                   </div>
                   </div>
-                </div>             
+                </div>                       
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -31,9 +27,10 @@
                       <th class="text-center">สถานะ</th>
                       <th>วันที่</th>
                       <th>เลขที่เอกสาร</th>
-                      <th>ไซต์ที่ยืม</th>
+                      <th>ไซต์ที่ยืม</th>                   
+                      <th>ผู้อนุมัติยืม</th>
                       <th>หมายเหตุ</th>
-                      <th style="width: 100px"></th>
+                      <th style="width: 80px">ส่งคืน</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -55,21 +52,13 @@
                         </td> 
                         <td>{{\Carbon\Carbon::parse($item->borr_hd_date)->format('d/m/Y')}}</td>
                         <td>{{$item->borr_hd_docuno}}</td>
-                        <td>{{$item->job_name}}</td>
-                        <td>{{$item->borr_hd_desc}}</td>
+                        <td>{{$item->job_name}}</td>                       
+                        <td>{{$item->app_name}}</td>
+                        <td>{{$item->app_reamrk}}</td>
                         <td>
-                          @if ($item->borr_hd_status == "ขอยืม")
-                            <a href="{{route('borrow.update',$item->id)}}" 
-                              class="btn btn-sm btn-warning" >
-                              <i class="fas fa-edit"></i>
-                            </a>  
-                            @role('admin') 
-                            <a href="{{route('borrow.approval',$item->id)}}" 
-                              class="btn btn-sm btn-info" >
-                              <i class="fas fa-hands-helping"></i>
-                            </a>
-                            @endrole                 
-                          @endif
+                            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal" wire:click="$emit('editRepatriate',{{$item->id}})">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>          
                         </td>
                     </tr>
                     @endforeach                  
