@@ -47,6 +47,7 @@
                           <th class="text-center">สถานะ</th>
                           <th>วันที่ยืม</th>
                           <th>วัสดุอุปกรณ์</th>
+                          <th>ไซต์งาน</th>
                           <th>ผู้ขอยืม</th>
                           <th>ผู้อนุมัติยืม</th>
                           <th>ผู้รับคืน</th>
@@ -69,10 +70,13 @@
                                     @endif
                                 </td> 
                                 <td>
-                                    {{$item->borr_hd_date}}
+                                    {{\Carbon\Carbon::parse($item->borr_hd_date)->format('d/m/Y')}}
                                 </td>
                                 <td>
                                     {{$item->equ_name}} ({{$item->equ_qty}})
+                                </td>
+                                <td>
+                                    {{$item->job_name}}
                                 </td>
                                 <td>
                                     {{$item->emp_name}}

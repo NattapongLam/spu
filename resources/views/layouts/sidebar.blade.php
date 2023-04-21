@@ -49,7 +49,7 @@
             </a>           
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('repair.list')}}" class="nav-link {{\Request::routeIs('repair.list') ? 'active' : ''}}">
                 <i class="nav-icon fas fas fa-wrench"></i>
                 <p>บันทึกแจ้งซ่อม</p>
             </a>           
@@ -62,13 +62,13 @@
             </a>           
         </li> --}}
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('repairreport.repday.index')}}" class="nav-link {{\Request::routeIs('repairreport.repday.index') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-chart-line"></i>
                 <p>รายงานแจ้งซ่อม</p>
             </a>           
         </li>
         <li class="nav-item">
-            <a href="{{route('borrowreport.borday.index')}}" class="nav-link">
+            <a href="{{route('borrowreport.borday.index')}}" class="nav-link {{\Request::routeIs('borrowreport.borday.index') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-chart-bar"></i>
                 <p>รายงานยืม-คืน</p>
             </a>           

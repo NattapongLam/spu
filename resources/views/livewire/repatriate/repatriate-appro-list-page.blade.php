@@ -30,7 +30,7 @@
                       <th>ไซต์ที่ยืม</th>                   
                       <th>ผู้อนุมัติยืม</th>
                       <th>หมายเหตุ</th>
-                      <th style="width: 80px">ส่งคืน</th>
+                      <th style="width: 80px">รับคืน</th>
                     </tr>
                   </thead>
                   <tbody>

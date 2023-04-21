@@ -111,8 +111,8 @@
                         <div class="form-group">
                             <label for="equ_status">สถานะ</label>
                             <select class="form-control" wire:model="equ_status">
-                                <option value="1">ใช้งาน</option>
-                                <option value="0">ยกเลิก</option>
+                                <option value="1">พร้อมใช้งาน</option>
+                                <option value="0">ไม่พร้อมใช้งาน</option>
                             </select>
                         </div>
                     </div>

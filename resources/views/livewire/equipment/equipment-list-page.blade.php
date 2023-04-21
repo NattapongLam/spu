@@ -47,9 +47,9 @@
                         </td>
                         <td class="text-center">
                             @if ($item->equ_status)
-                                <span class="badge badge-success">ใช้งาน</span>
+                                <span class="badge badge-success">พร้อมใช้งาน</span>
                             @else  
-                                <span class="badge badge-danger">ยกเลิก</span>
+                                <span class="badge badge-danger">ไม่พร้อมใช้งาน</span>
                             @endif
                         </td>
                         <td>{{$item->equ_code}}</td>

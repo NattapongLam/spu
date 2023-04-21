@@ -1,14 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BorrowController;
+use App\Http\Controllers\RepairController;
 use App\Http\Livewire\Borrow\BorrowFormPage;
 use App\Http\Livewire\Borrow\BorrowListPage;
+use App\Http\Livewire\Repair\RepairFormPage;
+use App\Http\Livewire\Repair\RepairListPage;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BorrowController;
 use App\Http\Livewire\JobSite\JobSiteListPage;
 use App\Http\Livewire\Borrow\BorrowApprovalPage;
 use App\Http\Livewire\Employee\EmployeeListPage;
 use App\Http\Livewire\Employee\EmployeeRolePage;
+use App\Http\Livewire\Repair\RepairApprovalPage;
 use App\Http\Livewire\Equipment\EquipmentFormPage;
 use App\Http\Livewire\Equipment\EquipmentListPage;
 use App\Http\Livewire\Repatriate\RepatriateListPage;
@@ -104,4 +108,23 @@ Route::group([
     'middleware' =>  ['auth','role:admin|employee|repairman']
 ],function(){
     Route::get('/borday', [BorrowController::class,'borday'])->name('borday.index');  
+});
+
+Route::group([
+    'prefix' => 'repairs',
+    'as' => 'repair.',
+    'middleware' =>  ['auth','role:admin|employee|repairman']
+],function(){
+    Route::get('/', RepairListPage::class)->name('list');
+    Route::get('/create', RepairFormPage::class)->name('create');
+    Route::get('/update/{id}', RepairFormPage::class)->name('update');
+    Route::get('/approval/{id}', RepairApprovalPage::class)->name('approval');
+});
+
+Route::group([
+    'prefix' => 'repairreports',
+    'as' => 'repairreport.',
+    'middleware' =>  ['auth','role:admin|employee|repairman']
+],function(){
+    Route::get('/repday', [RepairController::class,'repday'])->name('repday.index');  
 });
