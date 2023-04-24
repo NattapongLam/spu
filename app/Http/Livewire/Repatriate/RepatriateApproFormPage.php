@@ -19,6 +19,7 @@ class RepatriateApproFormPage extends Component
     public $emp_name;
     public $app_reamrk;
     public $sta_id=5;
+    public $send_remark;
     public $return_remark;
 
     public $equs = [];
@@ -35,6 +36,7 @@ class RepatriateApproFormPage extends Component
             $this->req_job_id = $hd->req_job_id;
             $this->emp_name = $hd->emp_name;
             $this->app_reamrk = $hd->app_reamrk; 
+            $this->send_remark = $hd->send_remark;
             $this->return_remark = $hd->return_remark;
             $this->equs = BorrowDt::where('borrhd_id',$this->idKey)->get();        
         }

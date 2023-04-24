@@ -26,6 +26,9 @@ class CreateBorrowHdsTable extends Migration
             $table->string('app_name')->nullable()->comment('ผู้อนุมัติ');
             $table->bigInteger('sta_id');
             $table->text('app_reamrk')->nullable();
+            $table->text('return_name')->nullable();
+            $table->text('return_remark')->nullable();
+            $table->text('send_remark')->nullable();
             $table->timestamps();
         });
     }

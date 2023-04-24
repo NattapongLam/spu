@@ -10,7 +10,7 @@
                 <form wire:submit.prevent="save">
                     @csrf
                     <div class="row">
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="sta_id">สถานะ</label>
                                 <select class="form-control" wire:model="sta_id">
@@ -20,7 +20,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="borr_hd_date">วันที่</label>
                                 <input type="date" class="form-control @error('borr_hd_date') is-invalid @enderror" 
@@ -35,7 +35,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="borr_hd_docuno">เลขที่เอกสาร</label>
                                 <input type="text" class="form-control @error('borr_hd_docuno') is-invalid @enderror" 
@@ -66,7 +66,7 @@
                                 </select>
                             </div>
                         </div> --}}
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="req_job_id">ไซต์ที่ยืม</label>
                                 <select class="form-control" wire:model="req_job_id">
@@ -99,7 +99,7 @@
                                 <thead>
                                     <tr>
                                         <th>ชื่อวัสดุอุปกรณ์</th>
-                                        <th>จำนวนยืม</th>
+                                        {{-- <th>จำนวนยืม</th> --}}
                                         <th style="text-align: center; width: 40px">
                                             @livewire('borrow.borrow-equipment-page')
                                             <button type="button" 
@@ -119,9 +119,6 @@
                                             {{$item['equ_name']}} 
                                             <input type="hidden" value="{{$item['equ_id']}}" name="equ_id[]" wire:model="equs.{{$key}}.equ_id">
                                             <input type="hidden" value="{{$item['equ_name']}}" name="equ_name[]" wire:model="equs.{{$key}}.equ_name">
-                                        </td>
-                                        <td>
-                                            {{$item['equ_qty']}} 
                                             <input class="form-control" type="hidden" min="1" name="equ_qty[]" wire:model="equs.{{$key}}.equ_qty"> 
                                         </td>   
                                         <td>

@@ -16,7 +16,7 @@
                             <th>#</th>
                             <th>รหัสวัสดุอุปกรณ์</th>
                             <th>ชื่อวัสดุอุปกรณ์</th>
-                            <th>จำนวน</th>
+                            {{-- <th>จำนวน</th> --}}
                             <th>เลือก</th>
                         </tr>         
                     </thead>
@@ -26,7 +26,7 @@
                           <td>{{$item->id}}</td>
                           <td>{{$item->equ_code}}</td>
                           <td>{{$item->equ_name}} ({{$item->equ_unit}})</td>
-                          <td>{{$item->equ_qty}}</td>
+                          {{-- <td>{{$item->equ_qty}}</td> --}}
                           <td>
                             <button 
                               type="button" 

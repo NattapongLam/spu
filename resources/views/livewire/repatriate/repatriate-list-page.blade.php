@@ -12,7 +12,7 @@
                       <div class="input-group input-group-sm">
                         <input type="text" class="form-control float-right" placeholder="Search" wire:model="searchTerm"/>&nbsp;
                       </div>
-                      @livewire('repatriate.repatriate-form-page')
+                      {{-- @livewire('repatriate.repatriate-form-page') --}}
                   </div>
                   </div>
                 </div>                       
@@ -56,9 +56,10 @@
                         <td>{{$item->app_name}}</td>
                         <td>{{$item->app_reamrk}}</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal" wire:click="$emit('editRepatriate',{{$item->id}})">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>          
+                          <a href="{{route('repatriate.update',$item->id)}}" 
+                            class="btn btn-sm btn-info" >
+                            <i class="fas fa-hands-helping"></i>
+                          </a>          
                         </td>
                     </tr>
                     @endforeach                  

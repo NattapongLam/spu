@@ -15,6 +15,7 @@ use App\Http\Livewire\Employee\EmployeeRolePage;
 use App\Http\Livewire\Repair\RepairApprovalPage;
 use App\Http\Livewire\Equipment\EquipmentFormPage;
 use App\Http\Livewire\Equipment\EquipmentListPage;
+use App\Http\Livewire\Repatriate\RepatriateFormPage;
 use App\Http\Livewire\Repatriate\RepatriateListPage;
 use App\Http\Livewire\Repatriate\RepatriateApproFormPage;
 use App\Http\Livewire\Repatriate\RepatriateApproListPage;
@@ -91,6 +92,7 @@ Route::group([
     'middleware' =>  ['auth','role:admin|employee|repairman']
 ],function(){
     Route::get('/', RepatriateListPage::class)->name('list');
+    Route::get('/update/{id}', RepatriateFormPage::class)->name('update');
 });
 
 Route::group([

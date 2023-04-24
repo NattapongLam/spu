@@ -12,7 +12,7 @@
                       <div class="input-group input-group-sm">
                         <input type="text" class="form-control float-right" placeholder="Search" wire:model="searchTerm"/>&nbsp;
                       </div>
-                      @livewire('repatriate.repatriate-form-page')
+                      {{-- @livewire('repatriate.repatriate-form-page') --}}
                   </div>
                   </div>
                 </div>                       

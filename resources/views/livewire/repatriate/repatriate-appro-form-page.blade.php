@@ -4,13 +4,13 @@
         <div class="col-12">
         <div class="card">
               <div class="card-header">
-                <h3 class="card-title">อนุมัติยืมวัสดุอุปกรณ์</h3>
+                <h3 class="card-title">อนุมัติรับคืนวัสดุอุปกรณ์</h3>
               </div>
             <div class="card-body">
                 <form wire:submit.prevent="save">
                     @csrf
                     <div class="row">
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="borr_hd_date">วันที่</label>
                                 <input type="date" class="form-control @error('borr_hd_date') is-invalid @enderror" 
@@ -25,7 +25,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="borr_hd_docuno">เลขที่เอกสาร</label>
                                 <input type="text" class="form-control @error('borr_hd_docuno') is-invalid @enderror" 
@@ -45,7 +45,7 @@
                                 readonly>
                             </div>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="emp_name">ผู้บันทึก</label>
                                 <input type="text" class="form-control @error('emp_name') is-invalid @enderror" 
@@ -60,7 +60,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="req_job_id">ไซต์ที่ยืม</label>
                                 <select class="form-control" wire:model="req_job_id" >
@@ -78,7 +78,7 @@
                                 <thead>
                                     <tr>
                                         <th>ชื่อวัสดุอุปกรณ์</th>
-                                        <th>จำนวนยืม</th>
+                                        {{-- <th>จำนวนยืม</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,9 +87,9 @@
                                         <td>
                                             {{$item['equ_name']}}                                          
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             {{$item['equ_qty']}}                                           
-                                        </td>                                         
+                                        </td>                                          --}}
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -101,7 +101,11 @@
                         </div>
                         <div class="col-12 col-md-12">
                             <label for="app_reamrk">หมายเหตุอนุมัติ</label>
-                            <textarea class="form-control" id="app_reamrk" name="app_reamrk" wire:model="app_reamrk" ></textarea>
+                            <textarea class="form-control" id="app_reamrk" name="app_reamrk" wire:model="app_reamrk" readonly></textarea>
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <label for="send_remark">หมายเหตุส่งคืน</label>
+                            <textarea class="form-control" id="send_remark" name="send_remark" wire:model="send_remark" readonly></textarea>
                         </div>
                         <div class="col-12 col-md-12">
                             <label for="return_remark">รายละเอียดรับคืน</label>

@@ -21,7 +21,8 @@ class BorrowHd extends Model
         'sta_id',
         'app_reamrk',
         'return_name',
-        'return_remark'
+        'return_remark',
+        'send_remark'
     ];
     public function equs()
     {
