@@ -15,12 +15,14 @@
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition login-page">
+  
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด</b></a>
+    <img src="{{asset('assets/dist/img/logo.png')}}" class="img-fluid mb-6">
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card"><br>
+    <p class="text-center">บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด</p>
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
