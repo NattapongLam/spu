@@ -16,7 +16,6 @@
                             <th>#</th>
                             <th>รหัสวัสดุอุปกรณ์</th>
                             <th>ชื่อวัสดุอุปกรณ์</th>
-                            {{-- <th>จำนวน</th> --}}
                             <th>เลือก</th>
                         </tr>         
                     </thead>
@@ -26,11 +25,10 @@
                           <td>{{$item->id}}</td>
                           <td>{{$item->equ_code}}</td>
                           <td>{{$item->equ_name}} ({{$item->equ_unit}})</td>
-                          {{-- <td>{{$item->equ_qty}}</td> --}}
-                          <td>
+                          <td>                   
                             <button 
                               type="button" 
-                              class="btn btn-info"
+                              class="btn btn-block btn-outline-primary"
                               wire:click.prevent="$emit('selectedEqu',{{$item->id}})">
                               <i class="fas fa-check"></i>
                             </button>

@@ -17,6 +17,7 @@ class EquipmentListPage extends Component
     public function render()
     {
         $equ = Equipment::leftjoin('job_sites','equipment.job_id','=','job_sites.id')
+        ->orderBy('equ_code','ASC')
         ->select('equipment.*','job_sites.job_name as job_name');
         if($this->searchTerm){
             $equ = $equ

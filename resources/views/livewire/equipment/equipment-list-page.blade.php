@@ -28,12 +28,12 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>รูป</th>
+                      <th style="text-align: center">รูป</th>
                       <th style="text-align: center">สถานะ</th>
-                      <th>รหัสวัสดุอุปกรณ์</th>
-                      <th>ชื่อวัสดุอุปกรณ์</th>
-                      <th>ไชต์ที่จัดเก็บ</th>
-                      <th style="width: 40px">แก้ไข</th>
+                      <th style="text-align: center">รหัสวัสดุอุปกรณ์</th>
+                      <th style="text-align: center">ชื่อวัสดุอุปกรณ์</th>
+                      <th style="text-align: center">ไชต์ที่จัดเก็บ</th>
+                      <th style="width: 40px;">แก้ไข</th>
                     </tr>
                   </thead>
                   <tbody>

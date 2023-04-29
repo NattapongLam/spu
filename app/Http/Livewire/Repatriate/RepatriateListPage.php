@@ -23,6 +23,7 @@ class RepatriateListPage extends Component
     {
         $borr = DB::table('borrow_hds')
         ->join('job_sites','borrow_hds.req_job_id','=','job_sites.id')
+        ->where('borrow_hds.emp_name',auth()->user()->name)
         ->select('borrow_hds.*','job_sites.job_name as job_name')
         ->where('borrow_hds.sta_id',3);  
         if($this->searchTerm){

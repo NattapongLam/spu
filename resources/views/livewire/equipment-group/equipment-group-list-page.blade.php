@@ -34,8 +34,8 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th style="text-align: center">สถานะ</th>
-                      <th>รหัสกลุ่มวัสดุอุปกรณ์</th>
-                      <th>ชื่อกลุ่มวัสดุอุปกรณ์</th>
+                      <th style="text-align: center">รหัสกลุ่มวัสดุอุปกรณ์</th>
+                      <th style="text-align: center">ชื่อกลุ่มวัสดุอุปกรณ์</th>
                       <th style="width: 40px">แก้ไข</th>
                     </tr>
                   </thead>

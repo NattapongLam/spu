@@ -12,7 +12,7 @@
         <div class="image">
           <img src="{{asset('assets/dist/img/logo.png')}}" class="img-circle elevation-2" alt="User Image">        
         </div>
-        <div class="info">           
+        <div class="info">                     
             @auth
             <a href="#" class="d-block" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">{{auth()->user()->name}}</a>    
             <form action="{{route('logout')}}" method="POST" style="display: none;" id="form-logout">

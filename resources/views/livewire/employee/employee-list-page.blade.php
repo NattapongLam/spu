@@ -34,8 +34,8 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th style="text-align: center">สถานะ</th>
-                      <th>ชื่อ - นามสกุล</th>
-                      <th>อีเมล</th>
+                      <th style="text-align: center">ชื่อ - นามสกุล</th>
+                      <th style="text-align: center">อีเมล</th>
                       <th style="width: 40px">Action</th>
                       <th style="width: 40px">Role</th>
                     </tr>
