@@ -17,10 +17,11 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b>บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด</b></a>
+    <img src="{{asset('assets/dist/img/logo.png')}}" class="img-fluid mb-6">
   </div>
 
-  <div class="card">
+  <div class="card"><br>
+    <p class="text-center">บริษัท สหรุ่งเรืองก่อสร้าง(1993) จำกัด</p>
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 

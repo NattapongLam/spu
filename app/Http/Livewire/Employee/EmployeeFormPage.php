@@ -18,17 +18,31 @@ class EmployeeFormPage extends Component
         'editEmployee' => 'edit',
         'btnCreateEmployee' => 'resetInput'
     ];
-
-    protected $rules = [
-        'name' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-    ];
+    public function rulesValidate()
+    {
+        if($this->idKey)
+        {
+            return[
+                'name' => 'required',
+                'email'=> "required|unique:users,email,".$this->idKey,              
+            ];
+        }else
+        {
+            return[
+                'name' => 'required',
+                'email'=> "required|unique:users,email",
+                'password' => 'required|min:9',
+                'name'=> "required|unique:users,name,",
+            ];
+        }
+    }
 
     protected $messages = [
         'name.required' => 'กรุณากรอกชื่อ - นามสกุล',
         'email.required' => 'กรุณากรอกอีเมล',
-        'password.required' => 'กรุณากรอกรหัสผ่าน'
+        'password.required' => 'กรุณากรอกรหัสผ่าน',
+        'email.unique' => 'อีเมลนี้มีอยู่ในระบบแล้ว',
+        'name.unique' => 'ชื่อนี้มีอยู่ในระบบแล้ว',
     ];
 
     public function resetInput()
@@ -49,7 +63,7 @@ class EmployeeFormPage extends Component
     }
     public function save()
     {
-        $this->validate($this->rules,$this->messages);
+        $this->validate($this->rulesValidate(),$this->messages);
         $employee = new User();
         if($this->idKey > 0){
             $employee = User::findOrfail($this->idKey);     
