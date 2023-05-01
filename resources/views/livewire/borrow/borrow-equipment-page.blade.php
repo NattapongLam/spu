@@ -28,8 +28,9 @@
                           <td>                   
                             <button 
                               type="button" 
-                              class="btn btn-block btn-outline-primary"
-                              wire:click.prevent="$emit('selectedEqu',{{$item->id}})">
+                              class="btn-outline-primary"
+                              wire:click.prevent="$emit('selectedEqu',{{$item->id}})" 
+                              wire:loading.attr="disabled">
                               <i class="fas fa-check"></i>
                             </button>
                           </td>
@@ -45,3 +46,4 @@
         </div>
       </div>
     </div>
+  

@@ -89,6 +89,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   window.livewire.on("modalHide",() => {
     $("#modal").modal("hide");
   })
+  $('.btn-outline-primary').click(function() {
+      $(this).addClass('active');
+   });
 </script>
 </body>
 </html>

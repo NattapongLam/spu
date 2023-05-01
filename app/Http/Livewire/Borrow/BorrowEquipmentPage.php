@@ -14,6 +14,7 @@ class BorrowEquipmentPage extends Component
     
     public $searchTerm;
 
+
     public function render()
     {
         $equs = Equipment::where('job_id',1)->where('equ_status',true);
