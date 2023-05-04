@@ -98,7 +98,9 @@ class BorrowFormPage extends Component
             $docs = 'ASS-' . date('Ymd') . '-' . str_pad(1, 4, '0', STR_PAD_LEFT);
             $docs_number = 1;
         }
-        $stat = BorrowStatus::where('id',$this->sta_id)->first();
+        if($this->equs)
+        {
+            $stat = BorrowStatus::where('id',$this->sta_id)->first();
         try {
             DB::beginTransaction();
             $hd = BorrowHd::updateOrCreate([
@@ -140,7 +142,17 @@ class BorrowFormPage extends Component
         } catch (\Exception $e) {
             DB::rollBack();
             return $e;
-        }        
+        }                 
+        }
+        else{
+            $this->dispatchBrowserEvent('swal',[
+                'title' => 'ไม่สามารถบันทึกข้อมูลได้',
+                'timer' => 3000,
+                'icon' => 'info',
+            ]);
+            return;
+        }
+        
     }
 
     public function render()
