@@ -13,6 +13,7 @@ use App\Http\Livewire\Borrow\BorrowApprovalPage;
 use App\Http\Livewire\Employee\EmployeeListPage;
 use App\Http\Livewire\Employee\EmployeeRolePage;
 use App\Http\Livewire\Repair\RepairApprovalPage;
+use App\Http\Livewire\Repair\RepairFinishedPage;
 use App\Http\Livewire\Equipment\EquipmentFormPage;
 use App\Http\Livewire\Equipment\EquipmentListPage;
 use App\Http\Livewire\Repatriate\RepatriateFormPage;
@@ -121,6 +122,7 @@ Route::group([
     Route::get('/create', RepairFormPage::class)->name('create');
     Route::get('/update/{id}', RepairFormPage::class)->name('update');
     Route::get('/approval/{id}', RepairApprovalPage::class)->name('approval');
+    Route::get('/finished/{id}', RepairFinishedPage::class)->name('finished');
 });
 
 Route::group([

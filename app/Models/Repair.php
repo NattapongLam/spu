@@ -19,6 +19,11 @@ class Repair extends Model
         'rep_desc',
         'emp_name',
         'app_name',
-        'app_reamrk'
+        'app_reamrk',
+        'equ_guarantee',
+        'rep_timeline',
+        'rep_cost',
+        'rep_vendor',
+        'fin_remark'
     ];
 }

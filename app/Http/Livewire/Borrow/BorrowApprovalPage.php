@@ -51,8 +51,9 @@ class BorrowApprovalPage extends Component
         $ck = BorrowHd::where('id',$this->idKey)->first();
         foreach ($this->equs as $key => $value) {
             $equ = Equipment::where('id',$value->equ_id)->update([
-                'job_id' => $ck->req_job_id
-        ]);
+                'job_id' => $ck->req_job_id,
+                'doc_status' => 'ถูกยืม'
+            ]);
         }
         $this->dispatchBrowserEvent('swal',[
             'title' => 'บันทึกข้อมูลเรียบร้อย',

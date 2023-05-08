@@ -9,13 +9,13 @@ use App\Models\Equipment;
 use App\Models\RepairStatus;
 use Illuminate\Support\Facades\DB;
 
-class RepairApprovalPage extends Component
+class RepairFinishedPage extends Component
 {
     public $idKey = 0;
     public $rep_date;
     public $rep_docuno;
     public $rep_number;
-    public $sta_id=4;
+    public $sta_id=3;
     public $job_id;
     public $equ_id;
     public $rep_desc;
@@ -24,13 +24,14 @@ class RepairApprovalPage extends Component
     public $rep_timeline=1;
     public $rep_cost=0;
     public $rep_vendor;
-
+    public $fin_remark;
+    
     protected $rules =[
-        'app_reamrk' => 'required',
+        'fin_remark' => 'required',
     ];
 
     protected $messages = [
-        'app_reamrk.required' => 'กรุณากรอกใส่ข้อมูล',
+        'fin_remark.required' => 'กรุณากรอกใส่ข้อมูล',
     ];
 
     public function mount($id = 0)
@@ -53,7 +54,7 @@ class RepairApprovalPage extends Component
             $this->rep_vendor = $hd->rep_vendor;
         }
     }
-    
+
     public function save()
     {
         $this->validate($this->rules,$this->messages);
@@ -62,8 +63,8 @@ class RepairApprovalPage extends Component
             $hd = Repair::updateOrCreate([
                 'id' => $this->idKey
             ],[
-                'sta_id' => 4,
-                'app_reamrk' => $this->app_reamrk,
+                'sta_id' => 3,
+                'fin_remark' => $this->fin_remark,
                 'app_name' => auth()->user()->name,               
                 'updated_at' => 1,
                 'equ_guarantee' => $this->equ_guarantee,
@@ -72,7 +73,7 @@ class RepairApprovalPage extends Component
                 'rep_vendor' => $this->rep_vendor
             ]);
             $up = Equipment::where('id',$this->equ_id)->update([
-                'doc_status' => 'ส่งซ่อม'
+                'doc_status' => 'พร้อมยืม'
             ]);
             DB::commit();
             $this->dispatchBrowserEvent('swal',[
@@ -89,8 +90,8 @@ class RepairApprovalPage extends Component
 
     public function render()
     {
-        return view('livewire.repair.repair-approval-page',[
-            'sta' => RepairStatus::whereIn('id',[4])->get(),
+        return view('livewire.repair.repair-finished-page',[
+            'sta' => RepairStatus::whereIn('id',[3])->get(),
             'job' => JobSite::get(),
             'equ' => Equipment::get()
         ])->extends('layouts.main');

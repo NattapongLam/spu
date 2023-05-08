@@ -61,8 +61,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="job_id">ไซต์งาน</label>
-                                <select class="form-control @error('job_id') is-invalid @enderror" wire:model="job_id">
-                                    <option value="">กรุณาเลือกไซต์ที่ยืม</option>     
+                                <select class="form-control @error('job_id') is-invalid @enderror" wire:model="job_id">   
                                     @foreach ($job as $item)
                                     <option value="{{$item->id}}">{{$item->job_name}}</option>   
                                     @endforeach                             
@@ -80,7 +79,7 @@
                                 <select class="form-control @error('equ_id') is-invalid @enderror" wire:model="equ_id">
                                     <option value="">กรุณาเลือกวัสดุอุปกรณ์</option>     
                                     @foreach ($equ as $item)
-                                    <option value="{{$item->id}}">{{$item->equ_name}}</option>   
+                                    <option value="{{$item->id}}">{{$item->equ_code}}/{{$item->equ_name}}</option>   
                                     @endforeach                             
                                 </select>
                                 @error('equ_id')

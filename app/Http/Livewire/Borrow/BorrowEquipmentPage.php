@@ -17,7 +17,7 @@ class BorrowEquipmentPage extends Component
 
     public function render()
     {
-        $equs = Equipment::where('job_id',1)->where('equ_status',true);
+        $equs = Equipment::where('job_id',1)->where('equ_status',true)->where('doc_status','พร้อมยืม');
         if($this->searchTerm){
             $equs = $equs
             ->where('equ_code','LIKE',"%{$this->searchTerm}%")

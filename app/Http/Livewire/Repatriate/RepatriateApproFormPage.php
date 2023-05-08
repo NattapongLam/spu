@@ -8,6 +8,7 @@ use App\Models\BorrowDt;
 use App\Models\BorrowHd;
 use App\Models\Equipment;
 use App\Models\BorrowStatus;
+use Illuminate\Support\Facades\DB;
 
 class RepatriateApproFormPage extends Component
 { 
@@ -54,7 +55,8 @@ class RepatriateApproFormPage extends Component
         $ck = BorrowHd::where('id',$this->idKey)->first();
         foreach ($this->equs as $key => $value) {
             $equ = Equipment::where('id',$value->equ_id)->update([
-                'job_id' => $ck->stc_job_id
+                'job_id' => $ck->stc_job_id,
+                'doc_status' => 'พร้อมยืม'
         ]);
         }
         $this->dispatchBrowserEvent('swal',[
@@ -69,6 +71,7 @@ class RepatriateApproFormPage extends Component
     {
         return view('livewire.repatriate.repatriate-appro-form-page',[
             'req' => JobSite::where('id','<>',1)->get(),
+            'sta' => DB::table('doc_status')->whereIn('doc_status_id',[3,4])->get()
         ])->extends('layouts.main');
     }
 }

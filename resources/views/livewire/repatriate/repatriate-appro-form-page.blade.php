@@ -63,7 +63,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="req_job_id">ไซต์ที่ยืม</label>
-                                <select class="form-control" wire:model="req_job_id" >
+                                <select class="form-control" wire:model="req_job_id" @readonly(true)>
                                     <option value="">กรุณาเลือกไซต์ที่ยืม</option>     
                                     @foreach ($req as $item)
                                     <option value="{{$item->id}}">{{$item->job_name}}</option>   
@@ -78,7 +78,7 @@
                                 <thead>
                                     <tr>
                                         <th>ชื่อวัสดุอุปกรณ์</th>
-                                        {{-- <th>จำนวนยืม</th> --}}
+                                        {{-- <th>สถานะ</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,7 +88,11 @@
                                             {{$item['equ_name']}}                                          
                                         </td>
                                         {{-- <td>
-                                            {{$item['equ_qty']}}                                           
+                                            <select class="form-control" name="doc_sta[]" id="doc_sta[]">
+                                                @foreach ($sta as $item)
+                                                    <option value="{{$item->doc_status_name}}">{{$item->doc_status_name}}</option>
+                                                @endforeach
+                                            </select>                                           
                                         </td>                                          --}}
                                     </tr>
                                     @endforeach

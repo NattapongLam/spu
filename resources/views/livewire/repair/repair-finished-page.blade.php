@@ -5,7 +5,7 @@
         <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-6"><h3 class="card-title">บันทึกการส่งซ่อม</h3></div>
+                    <div class="col-6"><h3 class="card-title">บันทึกผลการซ่อม</h3></div>
                     <div class="col-6">
                         <div class="form-group">
                             {{-- <label for="sta_id">สถานะ</label> --}}
@@ -100,6 +100,15 @@
                             {{$message}}
                             </div>
                             @enderror
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <label for="app_reamrk">รายละเอียดการส่งซ่อม</label>
+                            <textarea class="form-control @error('app_reamrk') is-invalid @enderror" id="app_reamrk" name="app_reamrk" wire:model="app_reamrk" readonly></textarea>
+                            @error('app_reamrk')
+                            <div id="app_reamrk_validation" class="invalid-feedback">
+                            {{$message}}
+                            </div>
+                            @enderror
                         </div>           
                     </div><br>
                     <div class="row">
@@ -123,10 +132,10 @@
                             <input class="form-control" name="rep_cost" id="rep_cost" type="number" wire:model="rep_cost">
                         </div>
                         <div class="col-12 col-md-12">
-                            <label for="app_reamrk">รายละเอียดการส่งซ่อม</label>
-                            <textarea class="form-control @error('app_reamrk') is-invalid @enderror" id="app_reamrk" name="app_reamrk" wire:model="app_reamrk"></textarea>
-                            @error('app_reamrk')
-                            <div id="app_reamrk_validation" class="invalid-feedback">
+                            <label for="fin_remark">รายละเอียดผลการซ่อม</label>
+                            <textarea class="form-control @error('fin_remark') is-invalid @enderror" id="fin_remark" name="fin_remark" wire:model="fin_remark"></textarea>
+                            @error('fin_remark')
+                            <div id="fin_remark_validation" class="invalid-feedback">
                             {{$message}}
                             </div>
                             @enderror

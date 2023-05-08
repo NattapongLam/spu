@@ -48,6 +48,8 @@
                                     <span class="badge badge-danger">{{$item->sta_name}}</span>                              
                                 @elseif($item->sta_name == "ซ่อมเสร็จแล้ว")
                                     <span class="badge badge-success">{{$item->sta_name}}</span>
+                                @elseif($item->sta_name == "ส่งซ่อม")
+                                    <span class="badge badge-info">{{$item->sta_name}}</span>
                                 @endif
                         </td> 
                         <td>{{\Carbon\Carbon::parse($item->rep_date)->format('d/m/Y')}}</td>
@@ -66,7 +68,14 @@
                               class="btn btn-sm btn-info" >
                               <i class="fas fa-hands-helping"></i>
                             </a>
-                            @endrole                 
+                            @endrole
+                          @elseif($item->sta_name == "ส่งซ่อม")
+                          @role('admin|repairman') 
+                          <a href="{{route('repair.finished',$item->id)}}" 
+                            class="btn btn-sm btn-success" >
+                            <i class="fas fa-hands-helping"></i>
+                          </a>
+                          @endrole
                           @endif
                         </td>
                     </tr>

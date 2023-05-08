@@ -16,7 +16,7 @@ class RepairFormPage extends Component
     public $rep_docuno;
     public $rep_number;
     public $sta_id=1;
-    public $job_id;
+    public $job_id=1;
     public $equ_id;
     public $rep_desc;
     
@@ -79,7 +79,7 @@ class RepairFormPage extends Component
                 'equ_name' => $equ->equ_name
             ]);
             $up = Equipment::where('id',$this->equ_id)->update([
-                'equ_status' => false
+                'doc_status' => 'รอส่งซ่อม'
             ]);
             DB::commit();
             $this->dispatchBrowserEvent('swal',[
@@ -110,8 +110,8 @@ class RepairFormPage extends Component
         $this->rep_number = $docs_number;
         return view('livewire.repair.repair-form-page',[
             'sta' => RepairStatus::whereIn('id',[1,2])->get(),
-            'job' => JobSite::get(),
-            'equ' => Equipment::where('equ_status',true)->get()
+            'job' => JobSite::where('id',1)->get(),
+            'equ' => Equipment::where('equ_status',true)->where('job_id',1)->where('doc_status','พร้อมยืม')->get()
         ])->extends('layouts.main');
     }
 }

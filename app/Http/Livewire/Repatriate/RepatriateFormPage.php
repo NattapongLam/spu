@@ -6,6 +6,7 @@ use App\Models\JobSite;
 use Livewire\Component;
 use App\Models\BorrowDt;
 use App\Models\BorrowHd;
+use App\Models\Equipment;
 use App\Models\BorrowStatus;
 use Illuminate\Support\Facades\DB;
 
@@ -52,6 +53,12 @@ class RepatriateFormPage extends Component
             'borr_hd_status' => $stat->name,
             'send_remark' =>  $this->send_remark,
         ]);
+        $ck = BorrowDt::where('borrhd_id',$this->idKey)->get();
+        foreach ($ck as $key => $value) {
+            $equ = Equipment::where('id',$value->equ_id)->update([
+                'doc_status' => 'กำลังส่งคืน'
+            ]);
+        }
         $this->dispatchBrowserEvent('swal',[
             'title' => 'บันทึกข้อมูลเรียบร้อย',
             'timer' => 3000,

@@ -131,8 +131,12 @@ class BorrowFormPage extends Component
                     'created_at' => 1,
                     'updated_at' => 1
                 ]);
+                $up = DB::table('equipment')->where('id',$value['equ_id'])->update([
+                    'doc_status' => 'ขอยืม'
+                ]);
             }
             DB::commit();
+           
             $this->dispatchBrowserEvent('swal',[
                 'title' => 'บันทึกข้อมูลเรียบร้อย',
                 'timer' => 3000,

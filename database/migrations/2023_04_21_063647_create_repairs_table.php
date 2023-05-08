@@ -26,6 +26,10 @@ class CreateRepairsTable extends Migration
             $table->string('emp_name')->comment('ผู้บันทึก');
             $table->string('app_name')->nullable()->comment('ผู้อนุมัติ');          
             $table->text('app_reamrk')->nullable();
+            $table->string('equ_guarantee')->nullable()->comment('ประกันสินค้า');   
+            $table->integer('rep_timeline')->comment('จำนวนวัน');
+            $table->integer('rep_cost')->comment('จำนวนเงิน');
+            $table->string('rep_vendor')->nullable()->comment('ผู้ซ่อม');   
             $table->timestamps();
         });
     }
